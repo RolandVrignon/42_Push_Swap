@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 14:30:31 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/02 14:59:40 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/02 15:21:52 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ t_stack	*create_list(char *str)
 
 	new = (t_stack*)malloc(sizeof(t_stack));
 	if (!new)
-		exit(error());
+		exit(0);
 	new->nb = ft_atoi(str);
 	new->next = NULL;
 	new->prev = NULL;
@@ -62,7 +62,7 @@ t_stack	*list_add(t_stack *prev_stack, char *str)
 
 	new = (t_stack*)malloc(sizeof(t_stack));
 	if (!new)
-		exit(error());
+		exit(0);
 	prev_stack->next = new;
 	new->prev = prev_stack;
 	new->next = NULL;
@@ -119,12 +119,15 @@ t_board	*create_board(t_board *board, char **av)
 {
 	board = (t_board *)malloc(sizeof(t_board));
 	if (!board)
-		return (NULL);
+	    return (NULL);
 	if (!check_av(av))
 		return (NULL);
 	board = push_swap(board, av);
 	if (!check_duplicates(board))
+    {
+        free_board(board);
         return (NULL);
+    }
 	return (board);	
 }
 

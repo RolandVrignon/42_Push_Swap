@@ -6,11 +6,11 @@
 #    By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/31 17:22:30 by rvrignon          #+#    #+#              #
-#    Updated: 2022/06/02 14:35:55 by rvrignon         ###   ########.fr        #
+#    Updated: 2022/06/02 15:12:55 by rvrignon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC =  	push_swap.c initialize.c
+SRC =  	push_swap.c initialize.c free.c
 
 OBJ		=	$(SRC:.c=.o)
 

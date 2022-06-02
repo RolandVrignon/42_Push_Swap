@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/31 17:19:15 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/02 15:20:24 by rvrignon         ###   ########.fr       */
+/*   Created: 2022/06/02 15:09:02 by rvrignon          #+#    #+#             */
+/*   Updated: 2022/06/02 15:12:08 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "stdio.h"
 
-int		main(int ac, char **av)
+void    free_stack(t_stack *stack)
 {
-	t_board	*board;
+    t_stack *tmp;
+    
+    if (!stack)
+        return ;
+    while(stack->next != NULL)
+    {
+        tmp = stack;
+        stack = stack->next;
+        free(tmp);
+    }
+    free(stack);
+}
 
-	board = NULL;
-	if (ac < 2)
-		return (error());
-	board = create_board(board, av);
-	if (!board)
-		return (error());
-	print_stack(board->a);
-	free_board(board);
-	return (1);
+void    free_board(t_board *board)
+{
+    free_stack(board->a);
+    free_stack(board->b);
+    free(board);
 }
