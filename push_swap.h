@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 17:19:20 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/02 11:58:09 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/02 14:37:11 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,20 @@ typedef struct s_board
     struct s_stack *a;
     struct s_stack *b;
 }   t_board;
+
+
+int		error();
+
+int		check_av(char **av);
+
+t_stack	*create_list(char *str);
+
+t_stack	*list_add(t_stack *prev_stack, char *str);
+
+t_board	*push_swap(t_board *board, char **av);
+
+int     check_duplicates(t_board *board);
+
+t_board	*create_board(t_board *board, char **av);
 
 #endif
