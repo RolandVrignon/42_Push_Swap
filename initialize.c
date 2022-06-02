@@ -6,12 +6,11 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 14:30:31 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/02 14:41:15 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/02 14:52:09 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 int		error()
 {
@@ -102,7 +101,6 @@ int	check_duplicates(t_board *board)
 	stack = board->a;
 	while (stack->next != NULL)
 	{
-		ft_printf("%d\n", stack->nb);
         compares = stack->next;
         while(compares->next != NULL)
         {
@@ -110,6 +108,8 @@ int	check_duplicates(t_board *board)
                 return (0);
             compares = compares->next;
         }
+        if (stack->nb == compares->nb)
+            return (0);
 		stack = stack->next;
 	}
     return (1);
