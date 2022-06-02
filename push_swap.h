@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 17:19:20 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/02 14:50:13 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/02 14:57:41 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,7 @@ t_board	*push_swap(t_board *board, char **av);
 int     check_duplicates(t_board *board);
 
 t_board	*create_board(t_board *board, char **av);
+
+void    print_stack(t_stack *stack);
 
 #endif

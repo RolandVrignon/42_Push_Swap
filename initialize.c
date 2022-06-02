@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 14:30:31 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/02 14:52:09 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/02 14:59:40 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,4 +126,14 @@ t_board	*create_board(t_board *board, char **av)
 	if (!check_duplicates(board))
         return (NULL);
 	return (board);	
+}
+
+void    print_stack(t_stack *stack)
+{
+    while (stack->next != NULL)
+    {
+        ft_printf("%d\n", stack->nb);
+        stack = stack->next;
+    }
+    ft_printf("%d\n", stack->nb);
 }
