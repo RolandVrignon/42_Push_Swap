@@ -6,14 +6,14 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 17:19:15 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/02 18:05:17 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/02 18:15:08 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "stdio.h"
 
-int		main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_board	*board;
 

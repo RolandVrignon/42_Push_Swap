@@ -1,0 +1,86 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   initialize_two.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/02 18:15:24 by rvrignon          #+#    #+#             */
+/*   Updated: 2022/06/02 18:16:44 by rvrignon         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+
+t_board	*push_swap(t_board *board, char **av)
+{
+	t_stack	*a;
+	t_stack	*b;
+	int		i;
+
+	(void)b;
+	a = create_list(ft_atoi(av[1]));
+	i = 2;
+	while (av[i] != NULL)
+	{
+		a = list_add_back(a, ft_atoi(av[i]));
+		if (!a)
+			exit(error());
+		i++;
+	}
+	while (a->prev != NULL)
+		a = a->prev;
+	board->a = a;
+	board->b = NULL;
+	return (board);
+}
+
+int	check_duplicates(t_board *board)
+{
+	t_stack	*stack;
+	t_stack	*compares;
+
+	stack = board->a;
+	while (stack->next != NULL)
+	{
+		compares = stack->next;
+		while (compares->next != NULL)
+		{
+			if (stack->nb == compares->nb)
+				return (0);
+			compares = compares->next;
+		}
+		if (stack->nb == compares->nb)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
+}
+
+t_board	*create_board(t_board *board, char **av)
+{
+	board = (t_board *)malloc(sizeof(t_board));
+	if (!board)
+		return (NULL);
+	if (!check_av(av))
+		return (NULL);
+	board = push_swap(board, av);
+	if (!check_duplicates(board))
+	{
+		free_board(board);
+		return (NULL);
+	}
+	return (board);
+}
+
+void	print_stack(t_stack *stack)
+{
+	if (!stack)
+		return ;
+	while (stack->next != NULL)
+	{
+		ft_printf("%d\n", stack->nb);
+		stack = stack->next;
+	}
+	ft_printf("%d\n", stack->nb);
+}

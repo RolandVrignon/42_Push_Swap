@@ -6,32 +6,31 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 17:19:20 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/02 17:54:09 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/02 18:21:39 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP
-# define PUSH_SWAP
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-#include "libft/libft.h"
+# include "libft/libft.h"
 
 typedef struct s_stack
 {
-    long int        nb;
-    struct s_stack *next;
-    struct s_stack *prev;
-}   t_stack;
+	long int		nb;
+	struct s_stack	*next;
+	struct s_stack	*prev;
+}	t_stack;
 
 typedef struct s_board
 {
-    struct s_stack *a;
-    struct s_stack *b;
-}   t_board;
-
+	struct s_stack	*a;
+	struct s_stack	*b;
+}	t_board;
 
 // INITIALISATION FUNCTIONS
 
-int		error();
+int		error(void);
 
 int		check_av(char **av);
 
@@ -43,23 +42,23 @@ t_stack	*list_add_front(t_stack *first_stack, long int nb);
 
 t_board	*push_swap(t_board *board, char **av);
 
-int     check_duplicates(t_board *board);
+int		check_duplicates(t_board *board);
 
 t_board	*create_board(t_board *board, char **av);
 
-void    print_stack(t_stack *stack);
+void	print_stack(t_stack *stack);
 
 // FREE FUNCTIONS
 
-void    free_stack(t_stack *stack);
+void	free_stack(t_stack *stack);
 
-void    free_board(t_board *board);
+void	free_board(t_board *board);
 
 // SWAP FUNCTIONS
 
-void    swap_sa(t_board *board);
+void	swap_sa(t_board *board);
 
-void    swap_sb(t_board *board);
+void	swap_sb(t_board *board);
 
 void	swap_ss(t_board *board);
 
