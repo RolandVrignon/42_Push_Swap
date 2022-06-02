@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 14:30:31 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/02 16:37:58 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/02 17:49:35 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ t_stack	*create_list(long int nb)
 	return (new);
 }
 
-t_stack	*list_add(t_stack *prev_stack, char *str)
+t_stack	*list_add_back(t_stack *prev_stack, long int nb)
 {
 	t_stack *new;
 
@@ -66,7 +66,21 @@ t_stack	*list_add(t_stack *prev_stack, char *str)
 	prev_stack->next = new;
 	new->prev = prev_stack;
 	new->next = NULL;
-	new->nb = ft_atoi(str);
+	new->nb = nb;
+	return (new);
+}
+
+t_stack	*list_add_front(t_stack *first_stack, long int nb)
+{
+	t_stack *new;
+
+	new = (t_stack*)malloc(sizeof(t_stack));
+	if (!new)
+		exit(0);
+	first_stack->prev = new;
+	new->next = first_stack;
+	new->prev = NULL;
+	new->nb = nb;
 	return (new);
 }
 
@@ -81,7 +95,7 @@ t_board	*push_swap(t_board *board, char **av)
 	i = 2;
 	while(av[i] != NULL)
 	{
-		a = list_add(a, av[i]);
+		a = list_add_back(a, ft_atoi(av[i]));
 		if (!a)
 			exit(error());
 		i++;

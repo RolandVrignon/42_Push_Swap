@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 17:19:20 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/02 16:37:09 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/02 17:54:09 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,9 @@ int		check_av(char **av);
 
 t_stack	*create_list(long int nb);
 
-t_stack	*list_add(t_stack *prev_stack, char *str);
+t_stack	*list_add_back(t_stack *prev_stack, long int nb);
+
+t_stack	*list_add_front(t_stack *first_stack, long int nb);
 
 t_board	*push_swap(t_board *board, char **av);
 
@@ -64,5 +66,17 @@ void	swap_ss(t_board *board);
 void	swap_pa(t_board *board);
 
 void	swap_pb(t_board *board);
+
+void	swap_ra(t_board *board);
+
+void	swap_rb(t_board *board);
+
+void	swap_rr(t_board *board);
+
+void	swap_rra(t_board *board);
+
+void	swap_rrb(t_board *board);
+
+void	swap_rrr(t_board *board);
 
 #endif
