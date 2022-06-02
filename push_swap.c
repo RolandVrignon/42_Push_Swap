@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 17:19:15 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/02 15:20:24 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/02 16:44:14 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int		main(int ac, char **av)
 	if (!board)
 		return (error());
 	print_stack(board->a);
+	print_stack(board->b);
 	free_board(board);
 	return (1);
 }
