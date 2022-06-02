@@ -6,7 +6,7 @@
 #    By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/31 17:22:30 by rvrignon          #+#    #+#              #
-#    Updated: 2022/05/31 17:26:50 by rvrignon         ###   ########.fr        #
+#    Updated: 2022/06/02 11:47:08 by rvrignon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ $(NAME):	$(OBJ)
 			$(MAKE) all -C libft
 			cp libft/libft.a $(NAME)
 			ar rcs $(NAME) $(OBJ)
+			$(CC) $(CFLAGS) $(SRC) $(NAME)
 
 clean:		
 			$(MAKE) clean -C ./libft
@@ -33,7 +34,7 @@ clean:
 
 fclean:		clean
 			$(MAKE) fclean -C ./libft
-			$(RM) $(NAME)
+			$(RM) $(NAME) a.out
 
 re:			fclean $(NAME)
 
