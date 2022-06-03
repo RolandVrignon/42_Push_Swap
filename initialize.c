@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 14:30:31 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/02 18:16:38 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/03 13:45:08 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ int	error(void)
 	return (0);
 }
 
-int	check_av(char **av)
+int	check_av(char **av, int start)
 {
 	int		i;
 	char	*str;
 
-	i = 1;
+	i = start;
 	while (av[i] != NULL)
 	{
 		str = av[i];

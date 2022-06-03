@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 17:19:15 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/02 18:15:08 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/03 13:50:23 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,14 @@ int	main(int ac, char **av)
 	board = NULL;
 	if (ac < 2)
 		return (error());
-	board = create_board(board, av);
+	else if (ac == 2)
+	{
+		av = ft_split(av[1], ' ');
+		board = create_board(board, av, 0);
+		free_split(av);
+	}
+	else if (ac > 2)
+		board = create_board(board, av, 1);
 	if (!board)
 		return (error());
 	print_stack(board->a);

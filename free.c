@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 15:09:02 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/02 18:22:16 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/03 13:48:41 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,17 @@ void	free_board(t_board *board)
 	free_stack(board->a);
 	free_stack(board->b);
 	free(board);
+}
+
+void	free_split(char **tab)
+{
+	int	i;
+
+	i = 0;
+	while (tab[i] != NULL)
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
 }

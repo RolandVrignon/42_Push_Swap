@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 17:19:20 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/02 18:21:39 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/03 13:49:19 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef struct s_board
 
 int		error(void);
 
-int		check_av(char **av);
+int		check_av(char **av, int start);
 
 t_stack	*create_list(long int nb);
 
@@ -40,11 +40,11 @@ t_stack	*list_add_back(t_stack *prev_stack, long int nb);
 
 t_stack	*list_add_front(t_stack *first_stack, long int nb);
 
-t_board	*push_swap(t_board *board, char **av);
+t_board	*push_swap(t_board *board, char **av, int start);
 
 int		check_duplicates(t_board *board);
 
-t_board	*create_board(t_board *board, char **av);
+t_board	*create_board(t_board *board, char **av, int start);
 
 void	print_stack(t_stack *stack);
 
@@ -53,6 +53,8 @@ void	print_stack(t_stack *stack);
 void	free_stack(t_stack *stack);
 
 void	free_board(t_board *board);
+
+void	free_split(char **tab);
 
 // SWAP FUNCTIONS
 

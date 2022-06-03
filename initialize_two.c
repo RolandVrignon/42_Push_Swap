@@ -6,21 +6,21 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 18:15:24 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/02 18:16:44 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/03 13:43:43 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_board	*push_swap(t_board *board, char **av)
+t_board	*push_swap(t_board *board, char **av, int start)
 {
 	t_stack	*a;
 	t_stack	*b;
 	int		i;
 
 	(void)b;
-	a = create_list(ft_atoi(av[1]));
-	i = 2;
+	a = create_list(ft_atoi(av[start]));
+	i = start + 1;
 	while (av[i] != NULL)
 	{
 		a = list_add_back(a, ft_atoi(av[i]));
@@ -57,14 +57,14 @@ int	check_duplicates(t_board *board)
 	return (1);
 }
 
-t_board	*create_board(t_board *board, char **av)
+t_board	*create_board(t_board *board, char **av, int start)
 {
 	board = (t_board *)malloc(sizeof(t_board));
 	if (!board)
 		return (NULL);
-	if (!check_av(av))
+	if (!check_av(av, start))
 		return (NULL);
-	board = push_swap(board, av);
+	board = push_swap(board, av, start);
 	if (!check_duplicates(board))
 	{
 		free_board(board);
