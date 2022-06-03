@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 17:19:15 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/03 13:57:48 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/03 14:46:00 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ int	main(int ac, char **av)
 		board = create_board(board, av, 1);
 	if (!board)
 		return (error());
+	ft_printf("--A--\n");
 	print_stack(board->a);
+	ft_printf("--B--\n");
 	print_stack(board->b);
 	free_board(board);
 	return (1);

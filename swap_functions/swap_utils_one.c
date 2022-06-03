@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 15:27:32 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/03 14:00:57 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/03 14:40:09 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,77 +48,47 @@ void	swap_sb(t_board *board)
 	b_two->nb = swap;
 }
 
-void	swap_ss(t_board *board)
+void	swap_rra(t_board *board)
 {
-	ft_printf("ss\n");
-	swap_sa(board);
-	swap_sb(board);
-}
+	t_stack		*a;
+	long int	nb;
 
-void	swap_pa(t_board *board)
-{
-	t_stack	*a;
-	t_stack	*b;
-	t_stack	*tmp;
-
-	ft_printf("pa\n");
-	b = board->b;
-	a = board->a;
-	if (!b)
+	ft_printf("rra\n");
+	if (!board->a)
 		return ;
-	if (!a)
-		board->a = create_list(b->nb);
-	else
-	{
-		tmp = (t_stack *)malloc(sizeof(t_stack));
-		if (!tmp)
-			return ;
-		tmp->next = a;
-		a->prev = tmp;
-		tmp->prev = NULL;
-		tmp->nb = b->nb;
-		board->a = tmp;
-	}
-	tmp = b->next;
-	if (!tmp)
-	{
-		free(b);
-		board->b = NULL;
-		return ;
-	}
-	tmp->prev = NULL;
-	free(b);
-	board->b = tmp;
-}
-
-void	swap_pb(t_board *board)
-{
-	t_stack	*a;
-	t_stack	*b;
-	t_stack	*tmp;
-
-	ft_printf("pb\n");
-	a = board->a;
-	b = board->b;
+	a = board->a->next;
 	if (!a)
 		return ;
-	if (!b)
-		board->b = create_list(a->nb);
-	else
-	{
-		tmp = (t_stack *)malloc(sizeof(t_stack));
-		if (!tmp)
-			return ;
-		tmp->next = b;
-		b->prev = tmp;
-		tmp->prev = NULL;
-		tmp->nb = a->nb;
-		board->b = tmp;
-	}
-	tmp = a->next;
-	if (!tmp)
-		return ;
-	tmp->prev = NULL;
+	while (a->next != NULL)
+		a = a->next;
+	nb = a->nb;
+	a->prev->next = NULL;
 	free(a);
-	board->a = tmp;
+	board->a = list_add_front(board->a, nb);
+}
+
+void	swap_rrb(t_board *board)
+{
+	t_stack		*b;
+	long int	nb;
+
+	ft_printf("rrb\n");
+	if (!board->b)
+		return ;
+	b = board->b->next;
+	if (!b)
+		return ;
+	while (b->next != NULL)
+		b = b->next;
+	nb = b->nb;
+	b->prev->next = NULL;
+	free(b);
+	board->b = list_add_front(board->b, nb);
+}
+
+void	swap_rrr(t_board *board)
+{
+	ft_printf("rrr\n");
+	swap_rra(board);
+	swap_rrb(board);
 }
