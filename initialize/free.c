@@ -6,11 +6,11 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 15:09:02 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/03 13:48:41 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/03 14:00:39 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	free_stack(t_stack *stack)
 {
