@@ -6,12 +6,22 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 17:19:15 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/03 14:46:00 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/03 14:54:08 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "stdio.h"
+
+void	makejob(t_board *board)
+{
+	swap_sa(board);
+	swap_pb(board);
+	swap_pb(board);
+	swap_pb(board);
+	swap_ra(board);
+	swap_rb(board);
+}
 
 int	main(int ac, char **av)
 {
@@ -30,6 +40,7 @@ int	main(int ac, char **av)
 		board = create_board(board, av, 1);
 	if (!board)
 		return (error());
+	makejob(board);
 	ft_printf("--A--\n");
 	print_stack(board->a);
 	ft_printf("--B--\n");

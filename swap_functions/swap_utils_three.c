@@ -6,13 +6,13 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 15:27:35 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/03 14:42:05 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/03 14:48:33 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	util_pb(t_board *board, t_stack *a, t_stack *b)
+static void	util_pb(t_board *board, t_stack *a, t_stack *b)
 {
 	t_stack	*tmp;
 
@@ -33,7 +33,7 @@ void	util_pb(t_board *board, t_stack *a, t_stack *b)
 	}
 }
 
-void	util_pa(t_board *board, t_stack *a, t_stack *b)
+static void	util_pa(t_board *board, t_stack *a, t_stack *b)
 {
 	t_stack	*tmp;
 
