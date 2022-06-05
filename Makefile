@@ -6,7 +6,7 @@
 #    By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/31 17:22:30 by rvrignon          #+#    #+#              #
-#    Updated: 2022/06/03 14:51:47 by rvrignon         ###   ########.fr        #
+#    Updated: 2022/06/04 00:06:07 by rvrignon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,9 @@ SRC =  	main.c \
 		initialize/free.c \
 		swap_functions/swap_utils_one.c \
 		swap_functions/swap_utils_two.c \
-		swap_functions/swap_utils_three.c
+		swap_functions/swap_utils_three.c \
+		solver/check.c \
+		solver/solver_one.c \
 
 OBJ		=	$(SRC:.c=.o)
 
