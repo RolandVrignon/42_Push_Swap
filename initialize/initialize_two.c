@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 18:15:24 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/03 14:00:44 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/12 16:30:00 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,30 @@ void	print_stack(t_stack *stack)
 		return ;
 	while (stack->next != NULL)
 	{
-		ft_printf("%d\n", stack->nb);
+		ft_printf("nb = %d || rank = %d\n", stack->nb, stack->rank);
 		stack = stack->next;
 	}
-	ft_printf("%d\n", stack->nb);
+	ft_printf("nb = %d || rank = %d\n", stack->nb, stack->rank);
+}
+
+void	get_rank(t_stack *stack)
+{
+	t_stack	*start;
+	t_stack *b;
+	int		rank;
+	
+	start = stack;
+	while(stack)
+	{
+		rank = 1;
+		b = start;
+		while (b)
+		{
+			if (stack->nb > b->nb)
+				rank += 1;
+			b = b->next;
+		}
+		stack->rank = rank;
+		stack = stack->next;
+	}
 }

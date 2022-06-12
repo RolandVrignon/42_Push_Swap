@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 17:19:20 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/05 13:36:51 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/12 16:16:14 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
+# include <stdio.h>
 
 typedef struct s_stack
 {
 	long int		nb;
+	long int		rank;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }	t_stack;
@@ -47,6 +49,8 @@ int				check_duplicates(t_board *board);
 t_board			*create_board(t_board *board, char **av, int start);
 
 void			print_stack(t_stack *stack);
+
+void			get_rank(t_stack *stack);
 
 // FREE FUNCTIONS
 
