@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 17:19:20 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/12 17:37:41 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/12 18:40:57 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 typedef	struct s_content
 {
 	long int		nb;
-	long int		rank;
-	long int		gap;
+	int				rank;
+	int				gap;
 }	t_content;
 
 typedef struct s_stack

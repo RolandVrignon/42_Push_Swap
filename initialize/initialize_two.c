@@ -6,11 +6,24 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 18:15:24 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/12 18:02:35 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/12 18:46:47 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+t_content *create_content(long int nb)
+{
+	t_content *content;
+
+	content = (t_content *)malloc(sizeof(t_content));
+	if (!content)
+		return (NULL);
+	content->nb = nb;
+	content->rank = 0;
+	content->gap = 0;
+	return (content);
+}
 
 t_board	*push_swap(t_board *board, char **av, int start)
 {
@@ -20,16 +33,16 @@ t_board	*push_swap(t_board *board, char **av, int start)
 	int			i;
 
 	(void)b;
-	content = (t_content *)malloc(sizeof(t_content));
+	content = create_content(ft_atoi(av[start]));
 	if (!content)
 		exit (1);
-	content->nb = ft_atoi(av[start]);
 	a = create_list(content);
 	i = start + 1;
 	while (av[i] != NULL)
 	{
-		content = malloc(sizeof(content));
-		content->nb = ft_atoi(av[i]);
+		content = create_content(ft_atoi(av[i]));
+		if (!content)
+			exit (1);
 		a = list_add_back(a, content);
 		if (!a)
 			exit(error());
@@ -120,7 +133,10 @@ void	get_rank(t_stack *stack)
 		{
 			if (stack->content->nb > b->content->nb)
 				rank += 1;
-			b = b->next;
+			if (b->next != NULL)
+        		b = b->next;
+			else
+				break;
 		}
 		stack->content->rank = rank;
 		if (stack->next != NULL)
