@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 17:19:20 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/12 18:40:57 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/12 18:52:31 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "libft/libft.h"
 # include <stdio.h>
 
-typedef	struct s_content
+typedef struct s_content
 {
 	long int		nb;
 	int				rank;
@@ -59,6 +59,8 @@ void			print_stack(t_stack *stack);
 void			get_rank(t_stack *stack);
 
 void			get_gap(t_stack *stack);
+
+t_content		*create_content(long int nb);
 
 // FREE FUNCTIONS
 
