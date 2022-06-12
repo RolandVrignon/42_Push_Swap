@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 18:15:24 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/12 18:54:09 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/12 23:41:25 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ t_board	*push_swap(t_board *board, char **av, int start)
 
 	content = create_content(ft_atoi(av[start]));
 	if (!content)
-		exit (1);
+		return (NULL);
 	a = create_list(content);
 	i = start + 1;
 	while (av[i] != NULL)
 	{
 		content = create_content(ft_atoi(av[i]));
 		if (!content)
-			exit (1);
+			return (NULL);
 		a = list_add_back(a, content);
 		if (!a)
 			exit(error());
@@ -70,6 +70,8 @@ t_board	*create_board(t_board *board, char **av, int start)
 	if (!check_av(av, start))
 		return (NULL);
 	board = push_swap(board, av, start);
+	if (!board)
+		return (NULL);
 	if (!check_duplicates(board))
 	{
 		free_board(board);
@@ -89,7 +91,7 @@ void	print_stack(t_stack *stack)
 	i = 1;
 	while (stack)
 	{
-		ft_printf("\n\t%d :\t|\t%d\t|\t%d\t|\t%d\n",
+		ft_printf("\n\t%d :\t|\t%d\t|\t%d\t|\t%d\t\n",
 			i, stack->content->nb, stack->content->rank, stack->content->gap);
 		i++;
 		if (stack->next != NULL)
@@ -112,7 +114,7 @@ void	get_rank(t_stack *stack)
 	start = stack;
 	while (stack)
 	{
-		rank = 1;
+		rank = 0;
 		b = start;
 		while (b)
 		{

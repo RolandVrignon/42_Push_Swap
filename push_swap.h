@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 17:19:20 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/12 18:52:31 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/12 23:51:22 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "libft/libft.h"
 # include <stdio.h>
+# include <limits.h>
 
 typedef struct s_content
 {
@@ -47,6 +48,8 @@ t_stack			*create_list(t_content *content);
 t_stack			*list_add_back(t_stack *prev_stack, t_content *content);
 
 t_stack			*list_add_front(t_stack *first_stack, t_content *content);
+
+int				lstsize(t_stack *lst);
 
 t_board			*push_swap(t_board *board, char **av, int start);
 
@@ -97,5 +100,9 @@ void			swap_rrr(t_board *board);
 // SOLVER FUNCTIONS
 
 int				check_stack(t_stack *stack);
+
+void			little_stack_solver(t_board *board);
+
+void			big_stack_solver(t_board *board);
 
 #endif

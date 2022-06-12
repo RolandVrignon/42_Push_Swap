@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 16:35:27 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/12 18:52:16 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/12 23:43:27 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	get_gap(t_stack *stack)
 {
 	int	i;
 
-	i = 1;
+	i = 0;
 	while (stack->next != NULL)
 	{
 		stack->content->gap = stack->content->rank - i;
@@ -33,8 +33,27 @@ t_content	*create_content(long int nb)
 	content = (t_content *)malloc(sizeof(t_content));
 	if (!content)
 		return (NULL);
+	if (nb > 2147483647 || nb < -2147483648)
+		return (NULL);
 	content->nb = nb;
 	content->rank = 0;
 	content->gap = 0;
 	return (content);
+}
+
+int	lstsize(t_stack *lst)
+{
+	int		i;
+	t_stack	*tmp;
+
+	i = 0;
+	if (!lst)
+		return (0);
+	tmp = lst;
+	while (tmp)
+	{
+		i++;
+		tmp = tmp->next;
+	}
+	return (i);
 }
