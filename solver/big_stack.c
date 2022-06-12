@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 14:56:58 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/13 01:00:15 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/13 01:13:53 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void	big_stack_solver(t_board *board)
 		}
 		while (board->b)
 			swap_pa(board);
-		get_gap(board->a);
 		i = i * 2;
 	}
 }

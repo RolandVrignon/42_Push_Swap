@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 17:19:20 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/12 23:51:22 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/13 01:13:40 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ typedef struct s_content
 {
 	long int		nb;
 	int				rank;
-	int				gap;
 }	t_content;
 
 typedef struct s_stack
@@ -60,8 +59,6 @@ t_board			*create_board(t_board *board, char **av, int start);
 void			print_stack(t_stack *stack);
 
 void			get_rank(t_stack *stack);
-
-void			get_gap(t_stack *stack);
 
 t_content		*create_content(long int nb);
 
