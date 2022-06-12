@@ -6,16 +6,16 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 14:56:58 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/12 23:48:46 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/13 01:00:15 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void big_stack_solver(t_board *board)
+void	big_stack_solver(t_board *board)
 {
-	t_stack 	*a;
-	int 		i;
+	t_stack		*a;
+	int			i;
 	int			j;
 	int			size;
 
@@ -24,7 +24,7 @@ void big_stack_solver(t_board *board)
 	while (!check_stack(board->a))
 	{
 		j = 0;
-		while(j < size)
+		while (j < size)
 		{
 			a = board->a;
 			if ((a->content->rank & i) == i)
@@ -33,7 +33,7 @@ void big_stack_solver(t_board *board)
 				swap_pb(board);
 			j++;
 		}
-		while(board->b)
+		while (board->b)
 			swap_pa(board);
 		get_gap(board->a);
 		i = i * 2;

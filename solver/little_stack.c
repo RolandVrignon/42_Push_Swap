@@ -6,15 +6,15 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 23:47:25 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/13 00:35:55 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/13 00:59:52 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static void solve_trio(t_board *board)
+static void	solve_trio(t_board *board)
 {
-	t_stack *a;
+	t_stack	*a;
 
 	a = board->a;
 	if (a->content->rank == 2 && a->next->content->rank == 0)
@@ -35,12 +35,39 @@ static void solve_trio(t_board *board)
 	}
 }
 
-void little_stack_solver(t_board *board)
+static void	solve_five(t_board *board)
 {
-	if (lstsize(board->a) == 2)
+	t_stack	*a;
+	int		i;
+
+	i = 0;
+	while (i < 6)
+	{
+		a = board->a;
+		if (a->content->rank == 3 || a->content->rank == 4)
+			swap_pb(board);
+		else
+			swap_ra(board);
+		i++;
+	}
+	solve_trio(board);
+	if (board->b->content->rank == 3)
+		swap_sb(board);
+	swap_pa(board);
+	swap_pa(board);
+	swap_ra(board);
+	swap_ra(board);
+}
+
+void	little_stack_solver(t_board *board)
+{
+	int	size;
+
+	size = lstsize(board->a);
+	if (size == 2)
 		swap_sa(board);
-	else if (lstsize(board->a) == 3)
+	else if (size == 3)
 		solve_trio(board);
-	else
-		(void)board;
+	else if (size == 5)
+		solve_five(board);
 }
