@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 14:30:31 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/12 14:56:27 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/12 17:34:26 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,20 +43,26 @@ int	check_av(char **av, int start)
 	return (1);
 }
 
-t_stack	*create_list(long int nb)
+t_stack	*create_list(t_content *content)
 {
 	t_stack	*new;
 
 	new = (t_stack *)malloc(sizeof(t_stack));
 	if (!new)
 		exit(0);
-	new->nb = nb;
+	if (!content)
+	{
+		new->content = (t_content *)malloc(sizeof(t_content));
+		if (!new->content)
+			exit(0);
+	}
+	new->content = content;
 	new->next = NULL;
 	new->prev = NULL;
 	return (new);
 }
 
-t_stack	*list_add_back(t_stack *prev_stack, long int nb)
+t_stack	*list_add_back(t_stack *prev_stack, t_content *content)
 {
 	t_stack	*new;
 
@@ -66,11 +72,11 @@ t_stack	*list_add_back(t_stack *prev_stack, long int nb)
 	prev_stack->next = new;
 	new->prev = prev_stack;
 	new->next = NULL;
-	new->nb = nb;
+	new->content = content;
 	return (new);
 }
 
-t_stack	*list_add_front(t_stack *first_stack, long int nb)
+t_stack	*list_add_front(t_stack *first_stack, t_content *content)
 {
 	t_stack	*new;
 
@@ -80,6 +86,6 @@ t_stack	*list_add_front(t_stack *first_stack, long int nb)
 	first_stack->prev = new;
 	new->next = first_stack;
 	new->prev = NULL;
-	new->nb = nb;
+	new->content = content;
 	return (new);
 }

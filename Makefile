@@ -6,13 +6,14 @@
 #    By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/31 17:22:30 by rvrignon          #+#    #+#              #
-#    Updated: 2022/06/04 00:06:07 by rvrignon         ###   ########.fr        #
+#    Updated: 2022/06/12 16:42:31 by rvrignon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC =  	main.c \
 		initialize/initialize.c \
 		initialize/initialize_two.c \
+		initialize/initialize_three.c \
 		initialize/free.c \
 		swap_functions/swap_utils_one.c \
 		swap_functions/swap_utils_two.c \

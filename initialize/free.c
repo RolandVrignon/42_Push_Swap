@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 15:09:02 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/03 14:00:39 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/12 17:28:07 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@ void	free_stack(t_stack *stack)
 
 	if (!stack)
 		return ;
-	while (stack->next != NULL)
+	while (stack)
 	{
+		free(stack->content);
 		tmp = stack;
 		stack = stack->next;
 		free(tmp);
@@ -28,7 +29,7 @@ void	free_stack(t_stack *stack)
 }
 
 void	free_board(t_board *board)
-{
+{	
 	free_stack(board->a);
 	free_stack(board->b);
 	free(board);

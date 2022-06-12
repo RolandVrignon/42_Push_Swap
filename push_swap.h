@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 17:19:20 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/12 16:16:14 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/12 17:37:41 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,18 @@
 # include "libft/libft.h"
 # include <stdio.h>
 
-typedef struct s_stack
+typedef	struct s_content
 {
 	long int		nb;
 	long int		rank;
-	struct s_stack	*next;
-	struct s_stack	*prev;
+	long int		gap;
+}	t_content;
+
+typedef struct s_stack
+{
+	struct s_content	*content;
+	struct s_stack		*next;
+	struct s_stack		*prev;
 }	t_stack;
 
 typedef struct s_board
@@ -36,11 +42,11 @@ int				error(void);
 
 int				check_av(char **av, int start);
 
-t_stack			*create_list(long int nb);
+t_stack			*create_list(t_content *content);
 
-t_stack			*list_add_back(t_stack *prev_stack, long int nb);
+t_stack			*list_add_back(t_stack *prev_stack, t_content *content);
 
-t_stack			*list_add_front(t_stack *first_stack, long int nb);
+t_stack			*list_add_front(t_stack *first_stack, t_content *content);
 
 t_board			*push_swap(t_board *board, char **av, int start);
 
@@ -51,6 +57,8 @@ t_board			*create_board(t_board *board, char **av, int start);
 void			print_stack(t_stack *stack);
 
 void			get_rank(t_stack *stack);
+
+void			get_gap(t_stack *stack);
 
 // FREE FUNCTIONS
 
@@ -87,11 +95,5 @@ void			swap_rrr(t_board *board);
 // SOLVER FUNCTIONS
 
 int				check_stack(t_stack *stack);
-
-unsigned int	solve_main(t_board *board);
-
-unsigned int	solve_init(t_board *board);
-
-unsigned int	solve_compare_a(t_board *board);
 
 #endif

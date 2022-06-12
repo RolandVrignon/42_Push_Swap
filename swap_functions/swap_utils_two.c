@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 15:27:37 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/03 14:48:59 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/12 17:14:36 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	swap_ra(t_board *board)
 {
 	t_stack		*a;
-	long int	nb;
+	t_content	*content;
 
 	ft_printf("ra\n");
 	if (!board->a)
@@ -25,18 +25,18 @@ void	swap_ra(t_board *board)
 		return ;
 	board->a = board->a->next;
 	board->a->prev = NULL;
-	nb = a->nb;
+	content = a->content;
 	free(a);
 	a = board->a;
 	while (a->next != NULL)
 		a = a->next;
-	list_add_back(a, nb);
+	list_add_back(a, content);
 }
 
 void	swap_rb(t_board *board)
 {
 	t_stack		*b;
-	long int	nb;
+	t_content	*content;
 
 	ft_printf("rb\n");
 	if (!board->b)
@@ -46,12 +46,12 @@ void	swap_rb(t_board *board)
 		return ;
 	board->b = board->b->next;
 	board->b->prev = NULL;
-	nb = b->nb;
+	content = b->content;
 	free(b);
 	b = board->b;
 	while (b->next != NULL)
 		b = b->next;
-	list_add_back(b, nb);
+	list_add_back(b, content);
 }
 
 void	swap_rr(t_board *board)

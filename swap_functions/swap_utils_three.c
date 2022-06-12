@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 15:27:35 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/03 14:48:33 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/12 17:50:36 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	util_pb(t_board *board, t_stack *a, t_stack *b)
 	if (!a)
 		return ;
 	if (!b)
-		board->b = create_list(a->nb);
+		board->b = create_list(a->content);
 	else
 	{
 		tmp = (t_stack *)malloc(sizeof(t_stack));
@@ -28,7 +28,7 @@ static void	util_pb(t_board *board, t_stack *a, t_stack *b)
 		tmp->next = b;
 		b->prev = tmp;
 		tmp->prev = NULL;
-		tmp->nb = a->nb;
+		tmp->content = a->content;
 		board->b = tmp;
 	}
 }
@@ -40,7 +40,7 @@ static void	util_pa(t_board *board, t_stack *a, t_stack *b)
 	if (!b)
 		return ;
 	if (!a)
-		board->a = create_list(b->nb);
+		board->a = create_list(b->content);
 	else
 	{
 		tmp = (t_stack *)malloc(sizeof(t_stack));
@@ -49,7 +49,7 @@ static void	util_pa(t_board *board, t_stack *a, t_stack *b)
 		tmp->next = a;
 		a->prev = tmp;
 		tmp->prev = NULL;
-		tmp->nb = b->nb;
+		tmp->content = b->content;
 		board->a = tmp;
 	}
 }

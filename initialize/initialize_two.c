@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 18:15:24 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/12 16:30:00 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/12 18:02:35 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,23 @@
 
 t_board	*push_swap(t_board *board, char **av, int start)
 {
-	t_stack	*a;
-	t_stack	*b;
-	int		i;
+	t_stack		*a;
+	t_stack		*b;
+	t_content	*content;
+	int			i;
 
 	(void)b;
-	a = create_list(ft_atoi(av[start]));
+	content = (t_content *)malloc(sizeof(t_content));
+	if (!content)
+		exit (1);
+	content->nb = ft_atoi(av[start]);
+	a = create_list(content);
 	i = start + 1;
 	while (av[i] != NULL)
 	{
-		a = list_add_back(a, ft_atoi(av[i]));
+		content = malloc(sizeof(content));
+		content->nb = ft_atoi(av[i]);
+		a = list_add_back(a, content);
 		if (!a)
 			exit(error());
 		i++;
@@ -46,11 +53,11 @@ int	check_duplicates(t_board *board)
 		compares = stack->next;
 		while (compares->next != NULL)
 		{
-			if (stack->nb == compares->nb)
+			if (stack->content->nb == compares->content->nb)
 				return (0);
 			compares = compares->next;
 		}
-		if (stack->nb == compares->nb)
+		if (stack->content->nb == compares->content->nb)
 			return (0);
 		stack = stack->next;
 	}
@@ -73,16 +80,29 @@ t_board	*create_board(t_board *board, char **av, int start)
 	return (board);
 }
 
-void	print_stack(t_stack *stack)
+void    print_stack(t_stack *stack)
 {
-	if (!stack)
-		return ;
-	while (stack->next != NULL)
-	{
-		ft_printf("nb = %d || rank = %d\n", stack->nb, stack->rank);
-		stack = stack->next;
-	}
-	ft_printf("nb = %d || rank = %d\n", stack->nb, stack->rank);
+    int i;
+	
+	i = 0;
+    ft_printf("\n\tpos\t|\tnb\t|\trank\t|\tgap\n");
+    while (++i < 70)
+		ft_putchar_fd('-', 1);
+	i = 1;
+    while (stack)
+    {
+
+		ft_printf("\n\t%d :\t|\t%d\t|\t%d\t|\t%d\n", i, stack->content->nb, stack->content->rank, stack->content->gap);
+		i++;
+		if (stack->next != NULL)
+        	stack = stack->next;
+		else
+			break;
+    }
+    i = 0;
+    while (++i < 70)
+		ft_putchar_fd('-', 1);
+	ft_putchar_fd('\n', 1);
 }
 
 void	get_rank(t_stack *stack)
@@ -98,11 +118,14 @@ void	get_rank(t_stack *stack)
 		b = start;
 		while (b)
 		{
-			if (stack->nb > b->nb)
+			if (stack->content->nb > b->content->nb)
 				rank += 1;
 			b = b->next;
 		}
-		stack->rank = rank;
-		stack = stack->next;
+		stack->content->rank = rank;
+		if (stack->next != NULL)
+        	stack = stack->next;
+		else
+			break;
 	}
 }
