@@ -6,13 +6,13 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 15:28:41 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/13 16:58:03 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/13 17:06:57 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-static void return_value(t_board *board, int size)
+static void	return_value(t_board *board, int size)
 {
 	if (check_stack(board->a) && lstsize(board->a) == size)
 		ft_printf("OK\n");
@@ -22,12 +22,11 @@ static void return_value(t_board *board, int size)
 
 static void	makejob(t_board *board)
 {
-	char 	*tmp;
+	char	*tmp;
 	int		size;
 
 	size = lstsize(board->a);
 	tmp = get_next_line(0);
-
 	while (tmp != NULL)
 	{
 		if (!ft_strncmp(tmp, "sa", 2))
@@ -52,12 +51,9 @@ static void	makejob(t_board *board)
 			swap_rb(board);
 		else if (!ft_strncmp(tmp, "rr", 2))
 			swap_pb(board);
-		else
-			return_value(board, size);
 		free(tmp);
-		tmp = get_next_line(0);		
+		tmp = get_next_line(0);
 	}
-	free(tmp);
 	return_value(board, size);
 }
 
