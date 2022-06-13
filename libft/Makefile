@@ -1,6 +1,6 @@
 NAME = libft.a
 
-CC = cc
+CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
@@ -62,11 +62,6 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	ar rc $(NAME) $^
 	ranlib $(NAME)
-
-%.o: %.c
-	@echo "\033[0;33mGenerating obj..."
-	$(CC) -c $(CFLAGS) $^
-	@echo "\033[0m"
 
 bonus : $(BONUS_OBJ)
 	ar rc $(NAME) $^
