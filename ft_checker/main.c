@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 15:28:41 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/13 17:06:57 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/13 17:42:51 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,32 @@ static void	return_value(t_board *board, int size)
 		ft_printf("KO\n");
 }
 
+static void	make_move(char *tmp, t_board *board)
+{
+	if (!ft_strncmp(tmp, "sa", 2))
+		swap_sa(board);
+	else if (!ft_strncmp(tmp, "rra", 3))
+		swap_rra(board);
+	else if (!ft_strncmp(tmp, "rrb", 3))
+		swap_rrb(board);
+	else if (!ft_strncmp(tmp, "rrr", 3))
+		swap_rrr(board);
+	else if (!ft_strncmp(tmp, "sb", 2))
+		swap_sb(board);
+	else if (!ft_strncmp(tmp, "ss", 2))
+		swap_ss(board);
+	else if (!ft_strncmp(tmp, "pa", 2))
+		swap_pa(board);
+	else if (!ft_strncmp(tmp, "pb", 2))
+		swap_pb(board);
+	else if (!ft_strncmp(tmp, "ra", 2))
+		swap_ra(board);
+	else if (!ft_strncmp(tmp, "rb", 2))
+		swap_rb(board);
+	else if (!ft_strncmp(tmp, "rr", 2))
+		swap_pb(board);
+}
+
 static void	makejob(t_board *board)
 {
 	char	*tmp;
@@ -27,33 +53,15 @@ static void	makejob(t_board *board)
 
 	size = lstsize(board->a);
 	tmp = get_next_line(0);
+	if (!tmp)
+		return ;
 	while (tmp != NULL)
 	{
-		if (!ft_strncmp(tmp, "sa", 2))
-			swap_sa(board);
-		else if (!ft_strncmp(tmp, "rra", 3))
-			swap_rra(board);
-		else if (!ft_strncmp(tmp, "rrb", 3))
-			swap_rrb(board);
-		else if (!ft_strncmp(tmp, "rrr", 3))
-			swap_rrr(board);
-		else if (!ft_strncmp(tmp, "sb", 2))
-			swap_sb(board);
-		else if (!ft_strncmp(tmp, "ss", 2))
-			swap_ss(board);
-		else if (!ft_strncmp(tmp, "pa", 2))
-			swap_pa(board);
-		else if (!ft_strncmp(tmp, "pb", 2))
-			swap_pb(board);
-		else if (!ft_strncmp(tmp, "ra", 2))
-			swap_ra(board);
-		else if (!ft_strncmp(tmp, "rb", 2))
-			swap_rb(board);
-		else if (!ft_strncmp(tmp, "rr", 2))
-			swap_pb(board);
+		make_move(tmp, board);
 		free(tmp);
 		tmp = get_next_line(0);
 	}
+	free(tmp);
 	return_value(board, size);
 }
 
