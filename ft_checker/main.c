@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 15:28:41 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/13 17:42:51 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/13 17:55:46 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	make_move(char *tmp, t_board *board)
 	else if (!ft_strncmp(tmp, "rb", 2))
 		swap_rb(board);
 	else if (!ft_strncmp(tmp, "rr", 2))
-		swap_pb(board);
+		swap_rr(board);
 }
 
 static void	makejob(t_board *board)
