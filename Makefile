@@ -6,7 +6,7 @@
 #    By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/31 17:22:30 by rvrignon          #+#    #+#              #
-#    Updated: 2022/06/13 16:29:43 by rvrignon         ###   ########.fr        #
+#    Updated: 2022/06/13 16:45:41 by rvrignon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ SRC_CHECKER = 	ft_checker/main.c \
 				ft_checker/checker/get_next_line.c \
 				ft_checker/checker/get_next_line_utils.c \
 
-OBJ		=	$(SRC:.c=.o) 
+OBJ		=	$(SRC:.c=.o)
 
 OBJ_CHECKER = $(SRC_CHECKER:.c=.o)
 
