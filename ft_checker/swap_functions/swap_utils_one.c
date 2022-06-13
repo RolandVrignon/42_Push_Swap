@@ -6,11 +6,11 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 15:27:32 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/13 16:33:18 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/13 15:49:41 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../checker.h"
 
 void	swap_sa(t_board *board)
 {

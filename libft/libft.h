@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 18:12:32 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/12 21:01:57 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/13 16:29:01 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,8 +99,6 @@ void		ft_putstr_fd(char *s, int fd);
 void		ft_putendl_fd(char *s, int fd);
 
 void		ft_putnbr_fd(int n, int fd);
-
-char		*get_next_line(int fd);
 
 // Listes
 

@@ -51,8 +51,6 @@ SRC =  	ft_atoi.c \
 		printf_utils_one.c \
 		printf_utils_two.c \
 		printf_utils_three.c \
-		get_next_line.c \
-		get_next_line_utils.c \
 				
 
 BONUS_OBJ = $(BONUS_SRC:.c=.o)
