@@ -6,7 +6,7 @@
 #    By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/31 17:22:30 by rvrignon          #+#    #+#              #
-#    Updated: 2022/06/13 17:34:31 by rvrignon         ###   ########.fr        #
+#    Updated: 2022/06/13 21:09:41 by rvrignon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,11 +70,11 @@ bonus :		$(OBJ_CHECKER)
 
 clean:		
 			$(MAKE) clean -C ./libft
-			$(RM) $(OBJ) $(OBJ_CHECKER)
+			$(RM) $(NAME_CHECKER) $(NAME) $(OBJ) $(OBJ_CHECKER)
 
 fclean:		clean
 			$(MAKE) fclean -C ./libft
-			$(RM) $(NAME) $(PROG) $(NAME_CHECKER) $(PROG_CHECKER)
+			$(RM) $(PROG) $(PROG_CHECKER)
 
 re:			fclean $(NAME) $(NAME_CHECKER)
 
