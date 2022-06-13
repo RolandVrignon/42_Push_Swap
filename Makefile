@@ -6,21 +6,21 @@
 #    By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/31 17:22:30 by rvrignon          #+#    #+#              #
-#    Updated: 2022/06/12 23:48:27 by rvrignon         ###   ########.fr        #
+#    Updated: 2022/06/13 14:32:01 by rvrignon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC =  	main.c \
-		initialize/initialize.c \
-		initialize/initialize_two.c \
-		initialize/initialize_three.c \
-		initialize/free.c \
-		swap_functions/swap_utils_one.c \
-		swap_functions/swap_utils_two.c \
-		swap_functions/swap_utils_three.c \
-		solver/check.c \
-		solver/big_stack.c \
-		solver/little_stack.c \
+SRC =  	ft_push_swap/main.c \
+		ft_push_swap/initialize/initialize.c \
+		ft_push_swap/initialize/initialize_two.c \
+		ft_push_swap/initialize/initialize_three.c \
+		ft_push_swap/initialize/free.c \
+		ft_push_swap/swap_functions/swap_utils_one.c \
+		ft_push_swap/swap_functions/swap_utils_two.c \
+		ft_push_swap/swap_functions/swap_utils_three.c \
+		ft_push_swap/solver/check.c \
+		ft_push_swap/solver/big_stack.c \
+		ft_push_swap/solver/little_stack.c \
 
 OBJ		=	$(SRC:.c=.o)
 
@@ -28,7 +28,7 @@ CC		=	gcc
 RM		=	rm -f
 CFLAGS	=	-Wall -Werror -Wextra
 
-NAME	=	push_swap.a
+NAME	=	ft_push_swap/push_swap.a
 
 PROG	=	push_swap
 
