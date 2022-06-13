@@ -1,23 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_utils_two.c                                   :+:      :+:    :+:   */
+/*   swap_utils_four.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/02 15:27:37 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/13 17:29:15 by rvrignon         ###   ########.fr       */
+/*   Created: 2022/06/13 17:29:07 by rvrignon          #+#    #+#             */
+/*   Updated: 2022/06/13 17:30:50 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	swap_ra(t_board *board)
+void	swap_move_sa(t_board *board)
+{
+	t_stack		*a_one;
+	t_stack		*a_two;
+	t_content	*swap;
+
+	a_one = board->a;
+	if (!a_one)
+		return ;
+	a_two = a_one->next;
+	if (!a_two)
+		return ;
+	swap = a_one->content;
+	a_one->content = a_two->content;
+	a_two->content = swap;
+}
+
+void	swap_move_sb(t_board *board)
+{
+	t_stack		*b_one;
+	t_stack		*b_two;
+	t_content	*swap;
+
+	b_one = board->b;
+	if (!b_one)
+		return ;
+	b_two = b_one->next;
+	if (!b_two)
+		return ;
+	swap = b_one->content;
+	b_one->content = b_two->content;
+	b_two->content = swap;
+}
+
+void	swap_move_ra(t_board *board)
 {
 	t_stack		*a;
 	t_content	*content;
 
-	ft_printf("ra\n");
 	if (!board->a)
 		return ;
 	a = board->a;
@@ -33,12 +66,11 @@ void	swap_ra(t_board *board)
 	list_add_back(a, content);
 }
 
-void	swap_rb(t_board *board)
+void	swap_move_rb(t_board *board)
 {
 	t_stack		*b;
 	t_content	*content;
 
-	ft_printf("rb\n");
 	if (!board->b)
 		return ;
 	b = board->b;
@@ -52,18 +84,4 @@ void	swap_rb(t_board *board)
 	while (b->next != NULL)
 		b = b->next;
 	list_add_back(b, content);
-}
-
-void	swap_rr(t_board *board)
-{
-	ft_printf("rr\n");
-	swap_move_ra(board);
-	swap_move_rb(board);
-}
-
-void	swap_ss(t_board *board)
-{
-	ft_printf("ss\n");
-	swap_move_sa(board);
-	swap_move_sb(board);
 }

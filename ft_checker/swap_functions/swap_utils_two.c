@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 15:27:37 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/13 15:49:52 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/13 17:35:35 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,13 @@ void	swap_rb(t_board *board)
 void	swap_rr(t_board *board)
 {
 	ft_printf("rr\n");
-	swap_ra(board);
-	swap_rb(board);
+	swap_move_ra(board);
+	swap_move_rb(board);
 }
 
 void	swap_ss(t_board *board)
 {
 	ft_printf("ss\n");
-	swap_sa(board);
-	swap_sb(board);
+	swap_move_sa(board);
+	swap_move_sb(board);
 }

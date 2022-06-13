@@ -6,7 +6,7 @@
 #    By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/31 17:22:30 by rvrignon          #+#    #+#              #
-#    Updated: 2022/06/13 16:45:41 by rvrignon         ###   ########.fr        #
+#    Updated: 2022/06/13 17:34:31 by rvrignon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,8 @@ SRC =  	ft_push_swap/main.c \
 		ft_push_swap/swap_functions/swap_utils_one.c \
 		ft_push_swap/swap_functions/swap_utils_two.c \
 		ft_push_swap/swap_functions/swap_utils_three.c \
+		ft_push_swap/swap_functions/swap_utils_four.c \
+		ft_push_swap/swap_functions/swap_utils_five.c \
 		ft_push_swap/solver/check.c \
 		ft_push_swap/solver/big_stack.c \
 		ft_push_swap/solver/little_stack.c \
@@ -30,6 +32,8 @@ SRC_CHECKER = 	ft_checker/main.c \
 				ft_checker/swap_functions/swap_utils_one.c \
 				ft_checker/swap_functions/swap_utils_two.c \
 				ft_checker/swap_functions/swap_utils_three.c \
+				ft_checker/swap_functions/swap_utils_four.c \
+				ft_checker/swap_functions/swap_utils_five.c \
 				ft_checker/checker/check.c \
 				ft_checker/checker/get_next_line.c \
 				ft_checker/checker/get_next_line_utils.c \
