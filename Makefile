@@ -6,7 +6,7 @@
 #    By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/31 17:22:30 by rvrignon          #+#    #+#              #
-#    Updated: 2022/06/13 21:29:43 by rvrignon         ###   ########.fr        #
+#    Updated: 2022/06/13 21:48:21 by rvrignon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,20 +61,33 @@ $(NAME):	$(OBJ)
 			cp libft/libft.a $(NAME)
 			ar rcs $(NAME) $(OBJ)
 			$(CC) $(CFLAGS) -o $(PROG) $(SRC) $(NAME)
+			@echo "\033[1;32m"
+			@echo "\033[4;36mPUSSHHHH SWAAAAAAAAAP"
+			@echo "\033[4;32mGOOD WORK"
 			
 bonus :		$(OBJ_CHECKER)
 			$(MAKE) all -C libft
 			cp libft/libft.a $(NAME_CHECKER)
 			ar rcs $(NAME_CHECKER) $(OBJ_CHECKER)
 			$(CC) $(CFLAGS) -o $(PROG_CHECKER) $(SRC_CHECKER) $(NAME_CHECKER)
+			@echo "\033[1;32m"
+			@echo "\033[4;36mPUSSHHHH SWAP BONUS CHECKER"
+			@echo "\033[4;32mGOOD WORK"
 
 clean:		
 			$(MAKE) fclean -C ./libft
 			$(RM) $(NAME_CHECKER) $(NAME) $(OBJ) $(OBJ_CHECKER)
+			@echo "\033[1;32m"
+			@echo "\033[4;36mAll clean"
+			@echo "\033[4;32mGOOD WORK"
+			@echo "\033[1;32m"
 
 fclean:		clean
 			$(MAKE) fclean -C ./libft
 			$(RM) $(PROG) $(PROG_CHECKER)
+			@echo "\033[1;32m"
+			@echo "\033[4;36mAll fclean"
+			@echo "\033[4;32mGOOD WORK"
 
 re:			fclean $(NAME) $(NAME_CHECKER)
 
