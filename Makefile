@@ -6,7 +6,7 @@
 #    By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/31 17:22:30 by rvrignon          #+#    #+#              #
-#    Updated: 2022/06/13 21:48:21 by rvrignon         ###   ########.fr        #
+#    Updated: 2022/06/15 02:50:21 by rvrignon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,16 +78,15 @@ clean:
 			$(MAKE) fclean -C ./libft
 			$(RM) $(NAME_CHECKER) $(NAME) $(OBJ) $(OBJ_CHECKER)
 			@echo "\033[1;32m"
-			@echo "\033[4;36mAll clean"
-			@echo "\033[4;32mGOOD WORK"
-			@echo "\033[1;32m"
+			@echo "\033[4;36mPush Swap is now clean!\033[0m"
+			@echo "\033[4;32mGOOD WORK\033[0m"
 
 fclean:		clean
 			$(MAKE) fclean -C ./libft
 			$(RM) $(PROG) $(PROG_CHECKER)
 			@echo "\033[1;32m"
-			@echo "\033[4;36mAll fclean"
-			@echo "\033[4;32mGOOD WORK"
+			@echo "\033[4;36mPush Swap is now fcleaned!\033[0m"
+			@echo "\033[4;32mGOOD WORK\033[0m"
 
 re:			fclean $(NAME) $(NAME_CHECKER)
 
