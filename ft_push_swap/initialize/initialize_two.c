@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 18:15:24 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/13 01:13:29 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/22 23:31:49 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ t_board	*push_swap(t_board *board, char **av, int start)
 	while (av[i] != NULL)
 	{
 		content = create_content(ft_atoi(av[i]));
-		if (!content)
-			return (NULL);
 		a = list_add_back(a, content);
 		if (!a)
 			exit(error());
@@ -40,14 +38,18 @@ t_board	*push_swap(t_board *board, char **av, int start)
 	return (board);
 }
 
-int	check_duplicates(t_board *board)
+int	check_numbers(t_board *board)
 {
-	t_stack	*stack;
-	t_stack	*compares;
+	t_stack		*stack;
+	t_stack		*compares;
+	long int	nb;
 
 	stack = board->a;
 	while (stack->next != NULL)
 	{
+		nb = stack->content->nb;
+		if (nb > 2147483647 || nb < -2147483648)
+			return (0);
 		compares = stack->next;
 		while (compares->next != NULL)
 		{
@@ -59,6 +61,9 @@ int	check_duplicates(t_board *board)
 			return (0);
 		stack = stack->next;
 	}
+	nb = stack->content->nb;
+	if (nb > 2147483647 || nb < -2147483648)
+		return (0);
 	return (1);
 }
 
@@ -68,11 +73,12 @@ t_board	*create_board(t_board *board, char **av, int start)
 	if (!board)
 		return (NULL);
 	if (!check_av(av, start))
+	{
+		free_board(board);
 		return (NULL);
+	}
 	board = push_swap(board, av, start);
-	if (!board)
-		return (NULL);
-	if (!check_duplicates(board))
+	if (!check_numbers(board))
 	{
 		free_board(board);
 		return (NULL);

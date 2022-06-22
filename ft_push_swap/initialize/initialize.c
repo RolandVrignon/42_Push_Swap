@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 14:30:31 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/12 17:34:26 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/23 00:58:58 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,24 @@ int	check_av(char **av, int start)
 {
 	int		i;
 	char	*str;
+	int		j;
 
 	i = start;
 	while (av[i] != NULL)
 	{
 		str = av[i];
-		while (*str)
+		j = 0;
+		while (str[j])
 		{
-			if (*str == ' ' || ft_isdigit(*str))
-				str++;
-			else if (*str == '-' && ft_isdigit(*(str + 1)))
-				str++;
-			else if (*str == '+' && ft_isdigit(*(str + 1)))
-				str++;
-			else
+			if (j > 11)
 				return (0);
+			if (str[j] == '-' && !ft_isdigit(str[j + 1]))
+				return (0);
+			else if (str[j] == '+' && !ft_isdigit(str[j + 1]))
+				return (0);
+			else if (j > 0 && !ft_isdigit(str[j]))
+				return (0);
+			j++;
 		}
 		i++;
 	}

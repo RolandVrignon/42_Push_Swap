@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 17:19:20 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/13 17:33:05 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/22 23:29:18 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int				lstsize(t_stack *lst);
 
 t_board			*push_swap(t_board *board, char **av, int start);
 
-int				check_duplicates(t_board *board);
+int				check_numbers(t_board *board);
 
 t_board			*create_board(t_board *board, char **av, int start);
 

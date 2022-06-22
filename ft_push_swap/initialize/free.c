@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 15:09:02 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/12 17:28:07 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/23 00:54:10 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ void	free_stack(t_stack *stack)
 		return ;
 	while (stack)
 	{
-		free(stack->content);
+		if (stack->content)
+			free(stack->content);
 		tmp = stack;
 		stack = stack->next;
 		free(tmp);

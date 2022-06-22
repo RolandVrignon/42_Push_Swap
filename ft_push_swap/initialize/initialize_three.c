@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 16:35:27 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/13 01:12:51 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/22 23:25:12 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ t_content	*create_content(long int nb)
 
 	content = (t_content *)malloc(sizeof(t_content));
 	if (!content)
-		return (NULL);
-	if (nb > 2147483647 || nb < -2147483648)
 		return (NULL);
 	content->nb = nb;
 	content->rank = 0;

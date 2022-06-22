@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 17:19:15 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/13 01:12:31 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/22 21:49:12 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int ac, char **av)
 
 	board = NULL;
 	if (ac < 2)
-		return (1);
+		return (error());
 	else if (ac == 2)
 	{
 		av = ft_split(av[1], ' ');
