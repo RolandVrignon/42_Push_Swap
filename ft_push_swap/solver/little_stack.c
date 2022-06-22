@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 23:47:25 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/13 00:59:52 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/23 01:00:14 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,6 @@ void	little_stack_solver(t_board *board)
 		solve_trio(board);
 	else if (size == 5)
 		solve_five(board);
+	else
+		ft_printf("Not enough numbers\n");
 }
