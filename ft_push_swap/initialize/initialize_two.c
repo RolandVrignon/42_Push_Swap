@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 18:15:24 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/22 23:31:49 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/23 01:06:51 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ t_board	*create_board(t_board *board, char **av, int start)
 		return (NULL);
 	if (!check_av(av, start))
 	{
-		free_board(board);
+		free(board);
 		return (NULL);
 	}
 	board = push_swap(board, av, start);

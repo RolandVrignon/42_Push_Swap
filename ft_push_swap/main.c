@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 17:19:15 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/22 21:49:12 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/23 01:02:14 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,5 @@ int	main(int ac, char **av)
 	get_rank(board->a);
 	makejob(board);
 	free_board(board);
-	return (1);
+	return (0);
 }
