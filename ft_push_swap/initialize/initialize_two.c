@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 18:15:24 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/23 01:06:51 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/24 19:36:14 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,23 +91,24 @@ void	print_stack(t_stack *stack)
 	int	i;
 
 	i = 0;
-	ft_printf("\n\tpos\t|\tnb\t|\trank\n");
-	while (++i < 70)
+	while (++i < 34)
+		ft_putchar_fd('_', 1);
+	ft_printf("\n|\tnb\t|\trank\t|\n");
+	i = 0;
+	while (++i < 34)
 		ft_putchar_fd('-', 1);
-	i = 1;
 	while (stack)
 	{
-		ft_printf("\n\t%d :\t|\t%d\t|\t%d\t\n",
-			i, stack->content->nb, stack->content->rank);
-		i++;
+		ft_printf("\n|\t%d\t|\t%d\t|\n",
+			stack->content->nb, stack->content->rank);
 		if (stack->next != NULL)
 			stack = stack->next;
 		else
 			break ;
 	}
 	i = 0;
-	while (++i < 70)
-		ft_putchar_fd('-', 1);
+	while (++i < 34)
+		ft_putchar_fd('_', 1);
 	ft_putchar_fd('\n', 1);
 }
 

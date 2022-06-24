@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 17:19:15 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/24 15:14:17 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/24 19:38:37 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@ static void	makejob(t_board *board)
 		big_stack_solver(board);
 	else
 		little_stack_solver(board);
+}
+
+void	print(t_board *board)
+{
+	ft_printf("--A--\n");
+	print_stack(board->a);
 }
 
 int	main(int ac, char **av)

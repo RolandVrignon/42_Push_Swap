@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 17:19:20 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/22 23:29:18 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/24 19:27:19 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ void			print_stack(t_stack *stack);
 void			get_rank(t_stack *stack);
 
 t_content		*create_content(long int nb);
+
+void			print(t_board *board);
 
 // FREE FUNCTIONS
 
