@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 15:28:41 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/13 17:55:46 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/24 19:22:43 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 static void	return_value(t_board *board, int size)
 {
 	if (check_stack(board->a) && lstsize(board->a) == size)
-		ft_printf("OK\n");
+		ft_printf("\x1b[32mOK.\x1b[0m\n");
 	else
-		ft_printf("KO\n");
+		ft_printf("\x1b[31mKO.\x1b[0m\n");
 }
 
 static void	make_move(char *tmp, t_board *board)
@@ -84,5 +84,5 @@ int	main(int ac, char **av)
 		return (error());
 	makejob(board);
 	free_board(board);
-	return (1);
+	return (0);
 }
